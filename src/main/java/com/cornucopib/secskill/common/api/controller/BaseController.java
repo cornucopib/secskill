@@ -1,6 +1,6 @@
-package com.cornucopib.secskill.common.api;
+package com.cornucopib.secskill.common.api.controller;
 
-import com.cornucopib.secskill.common.api.CommonResult;
+import com.cornucopib.secskill.common.api.result.CommonResult;
 import com.cornucopib.secskill.common.api.exception.ApiException;
 import com.cornucopib.secskill.common.api.status.impl.ApiStatus;
 import org.springframework.http.HttpStatus;

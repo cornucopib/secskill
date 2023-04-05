@@ -1,4 +1,4 @@
-package com.cornucopib.secskill.common.api;
+package com.cornucopib.secskill.common.api.result;
 
 import com.cornucopib.secskill.common.api.status.IApiStatus;
 import com.cornucopib.secskill.common.api.status.impl.ApiStatus;
