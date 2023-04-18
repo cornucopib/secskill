@@ -1,7 +1,7 @@
 package com.cornucopib.secskill.demo.service;
 
 import com.cornucopib.secskill.demo.entity.DemoEntity;
-import org.springframework.stereotype.Service;
+import com.cornucopib.secskill.demo.vo.DemoVO;
 
 import java.util.List;
 
@@ -10,9 +10,20 @@ import java.util.List;
  * @since 2023/4/3
  */
 public interface IDemoService {
+
     /**
-     * 获取所有数据列表
+     * 执行get逻辑
+     *
      * @return 列表
      */
-    List<DemoEntity> getAll();
+    List<DemoEntity> sayGet();
+
+
+    /**
+     * 执行post逻辑
+     *
+     * @return 列表
+     */
+    List<DemoEntity> sayPost(DemoVO demoVO);
+
 }

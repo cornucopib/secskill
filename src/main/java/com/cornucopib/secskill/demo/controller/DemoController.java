@@ -1,10 +1,14 @@
 package com.cornucopib.secskill.demo.controller;
 
-import com.cornucopib.secskill.common.api.controller.BaseController;
 import com.cornucopib.secskill.common.api.exception.ApiException;
 import com.cornucopib.secskill.demo.entity.DemoEntity;
 import com.cornucopib.secskill.demo.service.IDemoService;
-import org.springframework.web.bind.annotation.*;
+import com.cornucopib.secskill.demo.vo.DemoVO;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -16,13 +20,18 @@ import java.util.List;
  * @since 2023/4/2
  */
 @RestController
-public class DemoController extends BaseController {
+public class DemoController {
     @Resource
     private IDemoService demoService;
 
-    @GetMapping("/sayHello")
-    public List<DemoEntity> sayHello() throws ApiException {
-        return demoService.getAll();
+    @GetMapping("/sayGet")
+    public List<DemoEntity> sayGet() throws ApiException {
+        return demoService.sayGet();
+    }
+
+    @PostMapping("/sayPost")
+    public List<DemoEntity> sayPost(@Validated @RequestBody DemoVO demoVO) throws ApiException {
+        return demoService.sayPost(demoVO);
     }
 
 }
