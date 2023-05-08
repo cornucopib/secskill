@@ -2,7 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cornucopib.secskill.demo.dao.DemoDao">
+
+<mapper namespace="com.cornucopib.secskill.demo.dao.IDemoDao">
     <resultMap id="UserResultMap" type="com.cornucopib.secskill.demo.entity.DemoEntity">
         <id column="id" property="id"/>
         <result column="name" property="name"/>

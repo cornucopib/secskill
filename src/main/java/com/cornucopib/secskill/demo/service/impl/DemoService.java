@@ -2,7 +2,7 @@ package com.cornucopib.secskill.demo.service.impl;
 
 import com.cornucopib.secskill.common.api.exception.Asserts;
 import com.cornucopib.secskill.common.api.status.impl.ApiStatus;
-import com.cornucopib.secskill.demo.dao.DemoDao;
+import com.cornucopib.secskill.demo.dao.IDemoDao;
 import com.cornucopib.secskill.demo.entity.DemoEntity;
 import com.cornucopib.secskill.demo.service.IDemoService;
 import com.cornucopib.secskill.demo.vo.DemoVO;
@@ -20,11 +20,11 @@ import java.util.List;
 @Service
 public class DemoService implements IDemoService {
     @Resource
-    private DemoDao demoDao;
+    private IDemoDao IDemoDao;
 
     @Override
     public List<DemoEntity> sayGet() {
-        return demoDao.getAll();
+        return IDemoDao.getAll();
     }
 
     @Override
@@ -33,6 +33,6 @@ public class DemoService implements IDemoService {
         if (demoVO.getAge() > 40) {
             Asserts.fail(ApiStatus.UNKNOWN_ERROR);
         }
-        return demoDao.getAll();
+        return IDemoDao.getAll();
     }
 }

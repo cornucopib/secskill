@@ -1,8 +1,6 @@
 package com.cornucopib.secskill.demo.dao;
 
 import com.cornucopib.secskill.demo.entity.DemoEntity;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -12,7 +10,6 @@ import java.util.List;
  * @author cornucopib
  * @since 2023/4/2
  */
-@Mapper
-public interface DemoDao {
+public interface IDemoDao {
     List<DemoEntity> getAll();
 }

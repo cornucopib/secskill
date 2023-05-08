@@ -9,7 +9,14 @@ import com.cornucopib.secskill.common.api.status.IApiStatus;
  * @since 2023/4/5
  */
 public enum ApiStatus implements IApiStatus {
-    SUCCESS("200", "Success"), UNKNOWN_ERROR("201", "未知错误");
+    SUCCESS("200", "Success"),
+    UNKNOWN_ERROR("201", "未知错误"),
+
+    RE_REGISTER_ERROR("203","重复注册手机号"),
+
+    LOGIN_ERROR("204","登录失败!")
+    ;
+
 
     private final String code;
     private String message;
