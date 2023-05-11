@@ -24,5 +24,5 @@ public interface IUserPasswordDao {
 
     int updateByPrimaryKey(UserPasswordVO record);
 
-    UserPasswordVO selectByUserId(Integer userId);
+    UserPasswordVO selectByUserId(String userId);
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cornucopib.secskill.user.dao.IUserDao">
     <resultMap id="BaseResultMap" type="com.cornucopib.secskill.user.vo.UserVO">
-        <id column="id" jdbcType="INTEGER" property="id" />
+        <id column="id" jdbcType="VARCHAR" property="id" />
         <result column="name" jdbcType="VARCHAR" property="name" />
         <result column="gender" jdbcType="TINYINT" property="gender" />
         <result column="age" jdbcType="INTEGER" property="age" />
@@ -28,19 +28,19 @@
         select
         <include refid="Base_Column_List" />
         from user_info
-        where id = #{id,jdbcType=INTEGER}
+        where id = #{id,jdbcType=VARCHAR}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
 
         delete from user_info
-        where id = #{id,jdbcType=INTEGER}
+        where id = #{id,jdbcType=VARCHAR}
     </delete>
     <insert id="insert" parameterType="com.cornucopib.secskill.user.vo.UserVO">
 
         insert into user_info (id, name, gender,
         age, telphone, register_mode,
         third_party_id)
-        values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT},
+        values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT},
         #{age,jdbcType=INTEGER}, #{telphone,jdbcType=VARCHAR}, #{registerMode,jdbcType=VARCHAR},
         #{thirdPartyId,jdbcType=VARCHAR})
     </insert>
@@ -72,7 +72,7 @@
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
-                #{id,jdbcType=INTEGER},
+                #{id,jdbcType=VARCHAR},
             </if>
             <if test="name != null">
                 #{name,jdbcType=VARCHAR},
@@ -116,7 +116,7 @@
                 third_party_id = #{thirdPartyId,jdbcType=VARCHAR},
             </if>
         </set>
-        where id = #{id,jdbcType=INTEGER}
+        where id = #{id,jdbcType=VARCHAR}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.cornucopib.secskill.user.vo.UserVO">
         update user_info
@@ -126,6 +126,6 @@
         telphone = #{telphone,jdbcType=VARCHAR},
         register_mode = #{registerMode,jdbcType=VARCHAR},
         third_party_id = #{thirdPartyId,jdbcType=VARCHAR}
-        where id = #{id,jdbcType=INTEGER}
+        where id = #{id,jdbcType=VARCHAR}
     </update>
 </mapper>

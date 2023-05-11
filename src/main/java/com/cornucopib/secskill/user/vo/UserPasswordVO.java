@@ -13,6 +13,6 @@ public class UserPasswordVO {
 
     private String encrptPassword;
 
-    private Integer userId;
+    private String userId;
 
 }

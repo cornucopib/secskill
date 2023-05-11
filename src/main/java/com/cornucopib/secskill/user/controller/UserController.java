@@ -28,7 +28,6 @@ public class UserController {
     @Resource
     private UserService userService;
 
-
     @GetMapping("/getVerificationCode")
     public CommonResult<?> getVerificationCode(@RequestParam(name = "telphone") String telphone) throws ApiException {
         Random random = new Random();

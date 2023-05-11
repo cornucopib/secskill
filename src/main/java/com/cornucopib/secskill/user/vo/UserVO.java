@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 @Data
 public class UserVO {
 
-    private Integer id;
+    private String id;
 
     @NotBlank(message = "用户名不能为空")
     private String name;
