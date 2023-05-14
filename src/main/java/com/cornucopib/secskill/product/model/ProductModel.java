@@ -1,6 +1,9 @@
 package com.cornucopib.secskill.product.model;
 
+import com.cornucopib.secskill.promo.model.PromoModel;
 import lombok.Data;
+
+import java.math.BigDecimal;
 
 /**
  * 商品Model.
@@ -13,9 +16,11 @@ public class ProductModel {
 
     private String id;
 
+    private String status;
+
     private String title;
 
-    private Double price;
+    private BigDecimal price;
 
     private Integer stock;
 
@@ -25,5 +30,5 @@ public class ProductModel {
 
     private String imgUrl;
 
-    private ProductModel promoModel;
+    private PromoModel promoModel;
 }

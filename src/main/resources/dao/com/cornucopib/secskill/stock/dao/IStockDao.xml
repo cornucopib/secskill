@@ -10,18 +10,18 @@
         id, stock, item_id
     </sql>
 
-    <select id="selectByItemId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <select id="selectByItemId" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />
         from item_stock
-        where item_id = #{itemId,jdbcType=INTEGER}
+        where item_id = #{itemId,jdbcType=VARCHAR}
     </select>
 
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />
         from item_stock
-        where id = #{id,jdbcType=INTEGER}
+        where id = #{id,jdbcType=VARCHAR}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete from item_stock
@@ -54,7 +54,7 @@
                 #{stock,jdbcType=INTEGER},
             </if>
             <if test="itemId != null">
-                #{itemId,jdbcType=INTEGER},
+                #{itemId,jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>

@@ -13,7 +13,9 @@ public interface IPromoDao {
     int deleteByPrimaryKey(String id);
 
     int insert(PromoDO record);
+
     int insertSelective(PromoDO record);
+
     PromoDO selectByPrimaryKey(String id);
 
     PromoDO selectByItemId(String itemId);

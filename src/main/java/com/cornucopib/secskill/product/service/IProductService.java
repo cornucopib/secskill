@@ -21,11 +21,11 @@ public interface IProductService {
     List<ProductModel> listItem();
 
     //商品详情浏览
-    ProductModel getItemById(Integer id);
+    ProductModel getProductById(String id);
 
     //库存扣减
-    boolean decreaseStock(Integer itemId,Integer amount)throws ApiException;
+    boolean decreaseStock(String itemId,Integer amount)throws ApiException;
 
     //商品销量增加
-    void increaseSales(Integer itemId,Integer amount)throws ApiException;
+    void increaseSales(String itemId,Integer amount)throws ApiException;
 }

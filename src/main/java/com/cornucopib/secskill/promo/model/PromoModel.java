@@ -1,22 +1,28 @@
 package com.cornucopib.secskill.promo.model;
 
-import java.util.Date;
+import lombok.Data;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 /**
  * @author cornucopib
  * @since 2023/5/10
  */
+@Data
 public class PromoModel {
 
     private String id;
 
+    private Integer status;
+
     private String promoName;
 
-    private Date startDate;
+    private LocalDateTime startDate;
 
-    private Date endDate;
+    private LocalDateTime endDate;
 
     private String itemId;
 
-    private Double promoItemPrice;
+    private BigDecimal promoItemPrice;
 }
