@@ -64,7 +64,7 @@ public class ProductService implements IProductService {
         ProductModel productModel = addStockToProduct(productDO, stockDO);
 
         PromoModel promoModel = promoService.getPromoByItemId(productModel.getId());
-        if ("3".equals(productModel.getStatus())) {
+        if (promoModel.getStatus() != 3) {
             productModel.setPromoModel(promoModel);
         }
         return productModel;
@@ -105,6 +105,6 @@ public class ProductService implements IProductService {
 
     @Override
     public void increaseSales(String itemId, Integer amount) throws ApiException {
-        productDao.increaseSales(itemId,amount);
+        productDao.increaseSales(itemId, amount);
     }
 }
