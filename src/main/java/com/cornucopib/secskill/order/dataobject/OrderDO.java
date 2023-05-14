@@ -1,9 +1,12 @@
 package com.cornucopib.secskill.order.dataobject;
 
+import lombok.Data;
+
 /**
  * @author cornucopib
  * @since 2023/5/10
  */
+@Data
 public class OrderDO {
 
     private String id;
