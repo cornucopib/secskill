@@ -32,6 +32,12 @@ public class ProductController {
         return CommonResult.success(productService.createItem(productModel));
     }
 
+
+    @PostMapping("/create_batch")
+    public CommonResult<List<ProductModel>> createBatch(@Validated @RequestBody List<ProductModel> productModelList) throws ApiException {
+        return CommonResult.success(productService.createItemBatch(productModelList));
+    }
+
     @GetMapping("/list")
     public CommonResult<List<ProductModel>> list() throws ApiException {
         List<ProductModel> productModelList = productService.listItem();

@@ -10,6 +10,7 @@ import com.cornucopib.secskill.order.service.IOrderService;
 import com.cornucopib.secskill.product.model.ProductModel;
 import com.cornucopib.secskill.product.service.IProductService;
 import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
@@ -20,6 +21,7 @@ import java.math.BigDecimal;
  * @author cornucopib
  * @since 2023/5/14
  */
+@Service
 public class OrderService implements IOrderService {
 
     @Resource

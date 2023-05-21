@@ -17,6 +17,9 @@ public interface IProductService {
     //创建商品
     ProductModel createItem(ProductModel ProductModel) throws ApiException;
 
+    //批量创建商品
+    List<ProductModel> createItemBatch(List<ProductModel> productModelList) throws ApiException;
+
     //商品列表浏览
     List<ProductModel> listItem();
 

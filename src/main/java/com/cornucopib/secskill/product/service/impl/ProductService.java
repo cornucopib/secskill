@@ -10,6 +10,9 @@ import com.cornucopib.secskill.promo.model.PromoModel;
 import com.cornucopib.secskill.promo.service.IPromoService;
 import com.cornucopib.secskill.stock.dao.IStockDao;
 import com.cornucopib.secskill.stock.dataobject.StockDO;
+import org.apache.ibatis.session.ExecutorType;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
@@ -37,6 +40,9 @@ public class ProductService implements IProductService {
     @Resource
     private IPromoService promoService;
 
+    @Resource
+    private SqlSessionFactory sqlSessionFactory;
+
     @Override
     public ProductModel createItem(ProductModel productModel) throws ApiException {
         productModel.setId(String.valueOf(System.currentTimeMillis()));
@@ -50,6 +56,28 @@ public class ProductService implements IProductService {
         stockDao.insertSelective(stockDO);
 
         return getProductById(productModel.getId());
+    }
+
+    @Override
+    public List<ProductModel> createItemBatch(List<ProductModel> productModelList) throws ApiException {
+        // 关闭ession自动提交
+        SqlSession sqlSession = sqlSessionFactory.openSession(ExecutorType.BATCH, false);
+        try{
+            IProductDao productDaoBatch = sqlSession.getMapper(IProductDao.class);
+            productModelList.forEach(productModel -> {
+                productModel.setId(String.valueOf(System.currentTimeMillis()));
+                ProductDO productDO = new ProductDO();
+                BeanUtils.copyProperties(productModel, productDO);
+                productDaoBatch.insertSelective(productDO);
+            });
+            sqlSession.commit();
+        }catch(Exception e){
+            sqlSession.rollback();
+
+        }finally {
+            sqlSession.close();
+        }
+        return productModelList;
     }
 
 
